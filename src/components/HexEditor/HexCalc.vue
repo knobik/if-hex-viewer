@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">bytes</span>
+                            <span class="input-group-text">selected</span>
                         </div>
                         <input type="text" class="form-control" readonly :value="buffer.length">
                     </div>
@@ -68,7 +68,7 @@
       },
       bufferToLong (buffer) {
         let value = 0
-        for (let i = 0; i < buffer.length; i++  ) {
+        for (let i =  buffer.length-1; i >= 0; i--) {
           value = (value * 256) + buffer[i]
         }
 
@@ -79,7 +79,7 @@
         for (let c = hex.length; c > 0; c -= 2) {
           bytes.push(parseInt(hex.substr(c - 2, 2), 16))
         }
-        return new Buffer(bytes)
+        return Buffer.from(bytes)
       },
       decToBuffer (dec) {
         let hex = parseInt(dec).toString(16)

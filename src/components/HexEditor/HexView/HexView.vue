@@ -57,7 +57,7 @@
     },
     data: function () {
       return {
-        showRows: 22,
+        showRows: 40,
         hoverPosition: null,
         selecting: false,
         selectionEndedOnViewport: false,
@@ -71,9 +71,6 @@
       }
     },
     methods: {
-      refresh (buffer) {
-        this.binary = new ByteBuffer(buffer)
-      },
       selectionPosition () {
         return {
           first: Math.min(this.selectStart, this.selectEnd),
@@ -117,6 +114,8 @@
         if (this.selecting) {
           this.selectEnd = position
         }
+
+        this.emitNewSelection()
       },
       selectionStart (position) {
         this.selectStart = position

@@ -4,6 +4,11 @@
             <div class="col-4">
                 <div class="row">
                     <div class="col-md-12">
+                        <tab-settings ref="hexCalc" :tab="tab"></tab-settings>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <hex-calc ref="hexCalc" :buffer="tab.selection.buffer" :position="tab.selection.positionStart"></hex-calc>
                     </div>
                 </div>
@@ -32,15 +37,16 @@
   import HexClipboard from './HexEditor/HexClipboard'
   import Tab from './Tab'
   import ByteBuffer from './HexEditor/HexView/ByteBuffer'
+  import TabSettings from './TabSettings'
 
   export default {
-    components: { HexView, HexCalc, HexMarkers, HexClipboard },
+    components: { HexView, HexCalc, HexMarkers, HexClipboard, TabSettings },
     props: {
       tab: { required: true, type: Tab },
     },
     methods: {
       updateBuffer (bytes) {
-        this.tab.buffer = new ByteBuffer(new Buffer(bytes))
+        this.tab.buffer = new ByteBuffer(Buffer.from(bytes))
       },
       setSelection (data) {
         this.tab.selection = data
