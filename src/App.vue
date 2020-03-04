@@ -22,8 +22,8 @@
   export default {
     components: { HexEditor },
     mounted () {
-      window.listner.onMessage((msg) => {
-        this.addTab(msg)
+      window.listner.onMessage((data, meta) => {
+        this.addTab(data, meta.name ? meta.name : null)
       })
     },
     data () {
@@ -34,11 +34,27 @@
       }
     },
     methods: {
-      addTab (bytes = []) {
-        let tab = new Tab(shortid.generate(), bytes, this.tabs.length === 0)
+      addTab (bytes = [], name = null) {
+        name = name ? name : shortid.generate();
+
+        let tab = new Tab(this.uniqueTabName(name), bytes, this.tabs.length === 0)
         this.tabs.push(tab)
         this.selectTab(tab)
         return tab
+      },
+      uniqueTabName(name, count = 0) {
+        let searchName = name;
+        for (let i = 0; i < this.tabs.length; i++) {
+          if (count > 0) {
+            searchName = `${name} (${count})`;
+          }
+          if (this.tabs[i].name === searchName) {
+            count++;
+            return this.uniqueTabName(name, count)
+          }
+        }
+
+        return searchName;
       },
       selectTab (selectedTab) {
         this.tabs.forEach(tab => tab.active = (tab.name === selectedTab.name))
