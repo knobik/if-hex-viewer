@@ -22,7 +22,7 @@ yarn lint
 
 ### Example udp sender class (PHP)
 
-```PHP
+```php
 <?php
 
 namespace App\Utils;
@@ -101,4 +101,24 @@ class Debug
         socket_close($sock);
     }
 }
+```
+
+# Example usage
+```php
+    /**
+     * @param  string|null  $name
+     * @return void
+     */
+    public function debug(?string $name = null): void
+    {
+        $buffer = $this->toBytes(); // byte (unsigned int) 0..255
+
+        if ($name) {
+            $debug = Debug::extended($name, $buffer);
+        } else {
+            $debug = Debug::simple($buffer);
+        }
+
+        $debug->send();
+    }
 ```
