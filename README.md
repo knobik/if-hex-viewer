@@ -20,7 +20,7 @@ yarn build
 yarn lint
 ```
 
-### Example udp sender class (PHP)
+# Example udp sender class (PHP)
 
 ```php
 <?php
@@ -103,7 +103,7 @@ class Debug
 }
 ```
 
-# Example usage
+### Example usage
 ```php
     /**
      * @param  string|null  $name
