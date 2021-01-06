@@ -1,6 +1,6 @@
 {
-  "name": "hex-editor-v2",
-  "version": "0.1.0",
+  "name": "if-hex-editor",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "vue:serve": "vue-cli-service serve",
