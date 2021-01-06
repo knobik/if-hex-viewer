@@ -1,5 +1,7 @@
 # if-hex-viewer
 
+hex viewer with the ability to listen for udp traffic. Project created for private use.
+
 ## Project setup
 ```
 yarn install
