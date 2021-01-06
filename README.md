@@ -1,6 +1,6 @@
 # if-hex-viewer
 
-hex viewer with the ability to listen for udp traffic. Project created for private use.
+Simple hex viewer accepting udp traffic as buffer, written in js with vue and electron, enables to color part of the dump. I use it to debug Tibia packets. This is a private project, so i cant guarantee constant support.
 
 ![screenshot](https://github.com/knobik/if-hex-viewer/blob/master/screenshot.png?raw=true)
 
