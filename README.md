@@ -2,6 +2,8 @@
 
 hex viewer with the ability to listen for udp traffic. Project created for private use.
 
+![screenshot](https://github.com/knobik/if-hex-viewer/blob/master/screenshot.png?raw=true)
+
 ## Project setup
 ```
 yarn install
