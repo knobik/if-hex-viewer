@@ -1,6 +1,6 @@
 # if-hex-viewer
 
-Simple hex viewer accepting udp traffic as buffer, written in js with vue and electron, enables to color part of the dump. I use it to debug Tibia packets. This is a private project, so i cant guarantee constant support.
+Simple hex viewer accepting udp data as buffer, written in js with vue and electron, enables to color parts of the dump. I use it to debug Tibia packets but can be used to RE anything realy, imagination is the limit ;). This is a private project, so i cant guarantee constant support.
 
 ![screenshot](https://github.com/knobik/if-hex-viewer/blob/master/screenshot.png?raw=true)
 
@@ -14,7 +14,7 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Builds binary for "production" use.
 ```
 yarn build
 ```
